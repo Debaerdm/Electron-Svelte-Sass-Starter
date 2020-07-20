@@ -15,7 +15,9 @@
 		"test:watch": "jest --watch",
 		"test:coverage": "jest --coverage --no-cache",
 		"start:prod": "sirv --port 4567 public",
-		"start:dev": "sirv --port 4567 public --dev"
+		"start:dev": "sirv --port 4567 public --dev",
+		"electron:windows": "npx electron-builder build --windows",
+		"electron:mac": "npx electron-builder build --mac"
 	},
 	"repository": {
 		"type": "git",
@@ -50,12 +52,12 @@
 		"electron-reloader": "1.0.1",
 		"jest": "26.1.0",
 		"jest-transform-svelte": "2.1.1",
-		"node-sass": "^4.14.1",
 		"npm-run-all": "4.1.5",
 		"rollup": "2.22.1",
 		"rollup-plugin-livereload": "1.3.0",
 		"rollup-plugin-svelte": "5.2.3",
 		"rollup-plugin-terser": "6.1.0",
+		"sass": "^1.26.10",
 		"svelte": "3.24.0",
 		"svelte-jester": "1.0.6",
 		"svelte-preprocess": "4.0.8"

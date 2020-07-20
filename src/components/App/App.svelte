@@ -1,8 +1,9 @@
 <script>
 	import { onMount } from 'svelte';
-	const { app, ipcRenderer } = require('electron').remote;
+	const { remote, ipcRenderer } = require('electron');
 	const svelte = require('svelte/compiler');
-	const sass =  require('node-sass');
+	const sass =  require('sass');
+	import Header from '../Header';
 	import { isOffline } from '../../shared/store';
 
 	onMount(() => {
@@ -11,24 +12,28 @@
 		document.getElementById('electron-version').innerText = process.versions['electron'];
 		document.getElementById('svelte-version').innerText = svelte.VERSION;
 		document.getElementById('sass-version').innerText = sass.info;
-		document.getElementById('package-version').innerText = app.getVersion();
+		document.getElementById('package-version').innerText = remote.app.getVersion();
 
-		setInterval(() => ipcRenderer.send('notifier', { title: 'It\'s a notification', body: 'See public/electron.js for more informations.' }), 5000);
+		setInterval(() => {
+			console.log('plop');
+			ipcRenderer.send('notifier', { title: 'It\'s a notification', body: 'See public/electron.js for more informations.' });
+		}, 20000);
 	});
 
 	window.addEventListener('online', () => isOffline.set(false));
-  window.addEventListener('offline', () => isOffline.set(true));
+ 	window.addEventListener('offline', () => isOffline.set(true));
 </script>
 
 <style src="./App.scss"></style>
 
+<Header />
 {#if $isOffline}
 	<div class="offline-banner">
 		<p>You'r are offline.</p>
 	</div>
 {/if}
 <div class="overview">
-	<h1>Hello World!</h1>
+	<h1>Welcom to you'r univers!</h1>
 	<p>
 		We are using Node.js <span id="node-version"></span>,
 		Chromium <span id="chrome-version"></span>,

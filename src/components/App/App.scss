@@ -1,7 +1,31 @@
-.skz-offline-banner {
+.offline-banner {
   padding: 1rem;
   color: #fff;
   font-size: 0.8rem;
   text-align: center;
   background-color: #ff1721;
+}
+
+.overview {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+
+  > p {
+    text-align: justify;
+
+    > span {
+      font-weight: bold;
+    }
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .overview {
+    color: white;
+  }
 }

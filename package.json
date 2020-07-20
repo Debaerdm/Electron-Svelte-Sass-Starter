@@ -1,0 +1,97 @@
+{
+	"name": "electron-svelte-sass-starter",
+	"appId": "electron-svelte-sass-starter",
+	"version": "1.0.0",
+	"description": "Electron app with svelte+sass",
+	"main": "public/electron.js",
+	"scripts": {
+		"postinstall": "electron-builder install-app-deps",
+		"build": "rollup -c --extend",
+		"autobuild": "rollup -c -w --extend",
+		"start": "npm-run-all -p dev electron",
+		"electron": "electron .",
+		"dev": "run-p start:dev autobuild",
+		"test": "jest",
+		"test:watch": "jest --watch",
+		"test:coverage": "jest --coverage --no-cache",
+		"start:prod": "sirv --port 4567 public",
+		"start:dev": "sirv --port 4567 public --dev"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/Debaerdm/Electron-Svelte-Sass-Starter.git"
+	},
+	"keywords": [
+		"svelte",
+		"electron",
+		"sass",
+		"starter"
+	],
+	"author": {
+		"name": "Mathieu De Baerdemaeker",
+		"email": "mathieu.debaerdemaeker@gmail.com",
+		"url": "https://github.com/Debaerdm"
+	},
+	"license": "ISC",
+	"devDependencies": {
+		"@babel/core": "7.10.5",
+		"@babel/plugin-transform-runtime": "7.10.5",
+		"@babel/preset-env": "7.10.4",
+		"@babel/runtime": "7.10.5",
+		"@rollup/plugin-commonjs": "14.0.0",
+		"@rollup/plugin-node-resolve": "8.4.0",
+		"@testing-library/jest-dom": "5.11.1",
+		"@testing-library/svelte": "3.0.0",
+		"babel-core": "6.26.3",
+		"babel-jest": "26.1.0",
+		"babel-polyfill": "6.26.0",
+		"electron": "9.1.0",
+		"electron-builder": "22.7.0",
+		"electron-reloader": "1.0.1",
+		"jest": "26.1.0",
+		"jest-transform-svelte": "2.1.1",
+		"node-sass": "^4.14.1",
+		"npm-run-all": "4.1.5",
+		"rollup": "2.22.1",
+		"rollup-plugin-livereload": "1.3.0",
+		"rollup-plugin-svelte": "5.2.3",
+		"rollup-plugin-terser": "6.1.0",
+		"svelte": "3.24.0",
+		"svelte-jester": "1.0.6",
+		"svelte-preprocess": "4.0.8"
+	},
+	"dependencies": {
+		"electron-context-menu": "2.2.0",
+		"electron-debug": "3.1.0",
+		"electron-log": "4.2.2",
+		"electron-unhandled": "3.0.2",
+		"electron-updater": "4.3.1",
+		"electron-util": "0.14.2",
+		"sirv-cli": "1.0.3"
+	},
+	"build": {
+		"appId": "electron-svelte-sass-starter",
+		"compression": "normal",
+		"productName": "Electron-Svelte-Sass-Starter",
+		"copyright": "Copyright © 2020",
+		"win": {
+			"target": "nsis"
+		},
+		"files": [
+			"public/**/*",
+			"node_modules/**/*"
+		],
+		"mac": {
+			"type": "distribution",
+			"target": "dmg",
+			"category": "public.app-category.news"
+		},
+		"directories": {
+			"buildResources": "buildResources/"
+		}
+	},
+	"bugs": {
+		"url": "https://github.com/Debaerdm/Electron-Svelte-Sass-Starter/issues"
+	},
+	"homepage": "https://github.com/Debaerdm/Electron-Svelte-Sass-Starter#readme"
+}
